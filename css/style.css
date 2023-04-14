@@ -98,7 +98,7 @@ h1{
     margin-top: 5%;
 }
 
-  /*BLOQUE 2 CONTENT*/
+/*BLOQUE 2 CONTENT*/
 .cart-container{
     display: flex;
     justify-content: space-around;
@@ -118,7 +118,6 @@ h1{
 .card > img {
     height: 250px;
 }
-
 .card button {
     border: none;
     outline: 0;
@@ -133,6 +132,17 @@ h1{
 .card button:hover {
     background-color: #470606;
 }
+
+/*BLOQUE 2 CONTENT*/
+.about-paragraph{
+    margin-bottom: 5%; 
+    color: whitesmoke;  
+    text-align: center; 
+    width: 80%; 
+    margin-left: 10%;
+}
+
+/*MODAL-CONTENT*/
 .modal-container {
     width: 80%;
     margin: 0 20%;
@@ -187,7 +197,6 @@ h1{
 .delete-product {
     cursor: pointer;
 }
-
 .icons{
     display: flex;
     column-gap: 25px;
@@ -234,8 +243,13 @@ h1{
     background-color: #2ea44f;
     outline-color: #2ea44f;
 }
+.legend{
+    position: fixed bottom; 
+    margin-top: 7%;
+    color: whitesmoke;
+}
 
-  /*MEDIA QUERYS*/
+/*MEDIA QUERYS*/
   
 @media only screen and (max-width: 750px) {
     .modal-container {

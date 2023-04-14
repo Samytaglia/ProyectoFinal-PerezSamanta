@@ -63,13 +63,9 @@ const getProducts = async () => {
 
 getProducts();
 
-
-//set item
 const saveLocal = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
-
-//get item
 
 const pintarCarrito = () => {
     modalContainer.innerHTML = "";
@@ -86,7 +82,7 @@ const pintarCarrito = () => {
     modalbutton.className = "modal-header-button";
   
     modalbutton.addEventListener("click", () => {
-      modalContainer.style.display = "none";
+    modalContainer.style.display = "none";
     });
   
     modalHeader.append(modalbutton);
@@ -144,13 +140,14 @@ const pintarCarrito = () => {
   
     const totalBuying = document.createElement("div");
     totalBuying.className = "total-content";
-    totalBuying.innerHTML = `Total a pagar: $ ${total}`;
+    totalBuying.innerHTML = `Total a pagar: $ ${total}
+    `;
     modalContainer.append(totalBuying);
   };
-  
+
   showCart.addEventListener("click", pintarCarrito);
   
-  const eliminarProducto = (id) => {
+    const eliminarProducto = (id) => {
     const foundId = carrito.find((element) => element.id === id);
   
     console.log(foundId);
@@ -162,6 +159,7 @@ const pintarCarrito = () => {
     carritoCounter();
     saveLocal();
     pintarCarrito();
+    deleteProduct();
   };
   
     const carritoCounter = () => {
@@ -176,7 +174,39 @@ const pintarCarrito = () => {
   
   carritoCounter();
 
-  
+
+  function deleteProduct(){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+      else{
+        
+      }
+    })
+    }
+
+  const $form = document.querySelector('#form')
+  $form.addEventListener('submit', handleSubmit)
+  function handleSubmit(event) {
+    event.preventDefault()
+    const form = new FormData(this)
+    mailing.setAttribute('href', `mailto:karminacarteras@gmail.com?subject=${form.get('name')}${form.get('email')}&body=${form.get('message')}`)
+    maiing.click()
+  }
+
 
 
  
