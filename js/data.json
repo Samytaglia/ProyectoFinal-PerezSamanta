@@ -1,0 +1,42 @@
+[
+    {
+        "id":1, 
+        "categoria":"Bandolera", 
+        "nombre":"Claire", 
+        "color":"negro", 
+        "descripcion": "Sobre de mano con manopla",
+        "imagen": "../images/sobre1.8.jpeg",
+        "precio":3300,
+        "cantidad": 1
+    },
+    {
+        "id": 2,
+        "categoria": "Sobre",
+        "nombre": "Jane",
+        "color": "blanco",
+        "descripcion": "Sobre de mano con manopla",
+        "imagen": "/images/sobre2.1.jpeg",
+        "precio": 2000,
+        "cantidad": 1
+      },
+      {
+        "id": 3,
+        "categoria": "Sobre",
+        "nombre": "Mary",
+        "color": "multicolor",
+        "descripcion": "Billetera amplia de cuero",
+        "imagen": "/images/billetera.jpeg",
+        "precio": 5000,
+        "cantidad": 1
+      },
+      {
+        "id": 4,
+        "categoria": "Riñonera",
+        "nombre": "Blair",
+        "color": "negro",
+        "descripcion": "Riñonera en charol",
+        "imagen": "/images/riñonera.jpeg",
+        "precio": 2000,
+        "cantidad": 1
+      }
+]
