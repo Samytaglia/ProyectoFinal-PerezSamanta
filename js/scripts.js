@@ -35,11 +35,11 @@ const productos = [
         nombre:'Blair', 
         color:'negro', 
         descripcion: 'Riñonera en charol',
-        imagen: "../../karmina/images/riñonera.jpeg",
+        imagen: "/images/riñonera.jpeg",
         precio:2000,
         cantidad: 1,
     },
-];
+]; 
 
 const cartContainer = document.getElementById("cartContainer");
 const showCart = document.getElementById("showCart");
@@ -110,12 +110,12 @@ const pintarCarrito = () => {
     const modalHeader = document.createElement("div");
     modalHeader.className = "modal-header";
     modalHeader.innerHTML = `
-        <h1 class="modal-header-title">Carrito.</h1>
+        <h2 class="modal-header-title">CARRITO DE COMPRA</h2>
       `;
     modalContainer.append(modalHeader);
   
-    const modalbutton = document.createElement("h1");
-    modalbutton.innerText = "x";
+    const modalbutton = document.createElement("a");
+    modalbutton.innerHTML = '<a><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></a>';
     modalbutton.className = "modal-header-button";
   
     modalbutton.addEventListener("click", () => {
@@ -130,13 +130,20 @@ const pintarCarrito = () => {
       carritoContent.innerHTML = `
           <img src="${product.imagen}">
           <h3>${product.categoria} ${product.nombre}</h3>
-          <p>${product.precio} $</p>
-          <span class="restar"> - </span>
-          <!--recomiendo no escribir la palabra cantidad para que no quede tan largo :)-->
-          <p>${product.cantidad}</p>
-          <span class="sumar"> + </span>
-          <p>Total: ${product.cantidad * product.precio} $</p>
-          <span class="delete-product"> ❌ </span>
+          <p>$${product.precio}</p>
+          <div>
+            <table>
+              <thead style="text-align: center; border: 1px solid black;">
+                <th class="restar" style="width: 25px;"><button style="width:100%; border: none">-</button></th>
+                <th style="width: 50px;">${product.cantidad}</th>
+                <th class="sumar" style="width: 25px;"><button style="width:100%; border: none">+</button></th>
+              </thead>
+            </table>
+          </div>
+          <p>Total: $ ${product.cantidad * product.precio}</p>
+          <span class="delete-product"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+          </span>
         `;
   
       modalContainer.append(carritoContent);
@@ -170,7 +177,7 @@ const pintarCarrito = () => {
   
     const totalBuying = document.createElement("div");
     totalBuying.className = "total-content";
-    totalBuying.innerHTML = `Total a pagar: ${total} $`;
+    totalBuying.innerHTML = `Total a pagar: $ ${total}`;
     modalContainer.append(totalBuying);
   };
   
@@ -201,3 +208,8 @@ const pintarCarrito = () => {
   };
   
   carritoCounter();
+
+  
+
+
+ 
