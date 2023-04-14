@@ -15,7 +15,7 @@
         "nombre": "Jane",
         "color": "blanco",
         "descripcion": "Sobre de mano con manopla",
-        "imagen": "/images/sobre2.1.jpeg",
+        "imagen": "images/sobre2.1.jpeg",
         "precio": 2000,
         "cantidad": 1
       },
