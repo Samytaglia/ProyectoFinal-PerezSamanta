@@ -5,7 +5,7 @@
         "nombre":"Claire", 
         "color":"negro", 
         "descripcion": "Sobre de mano con manopla",
-        "imagen": "../images/sobre1.8.jpeg",
+        "imagen": "images/sobre1.8.jpeg",
         "precio":3300,
         "cantidad": 1
     },
@@ -25,7 +25,7 @@
         "nombre": "Mary",
         "color": "multicolor",
         "descripcion": "Billetera amplia de cuero",
-        "imagen": "/images/billetera.jpeg",
+        "imagen": "images/billetera.jpeg",
         "precio": 5000,
         "cantidad": 1
       },
@@ -35,7 +35,7 @@
         "nombre": "Blair",
         "color": "negro",
         "descripcion": "Riñonera en charol",
-        "imagen": "/images/riñonera.jpeg",
+        "imagen": "images/riñonera.jpeg",
         "precio": 2000,
         "cantidad": 1
       }
