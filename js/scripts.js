@@ -35,7 +35,7 @@ const productos = [
         nombre:'Blair', 
         color:'negro', 
         descripcion: 'Riñonera en charol',
-        imagen: "/images/riñonera.jpeg",
+        imagen: "../../karmina/images/riñonera.jpeg",
         precio:2000,
         cantidad: 1,
     },
