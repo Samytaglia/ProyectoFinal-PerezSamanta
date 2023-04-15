@@ -1,3 +1,5 @@
+
+
 const cartContainer = document.getElementById("cartContainer");
 const showCart = document.getElementById("showCart");
 const modalContainer = document.getElementById("modal-container");
@@ -54,6 +56,7 @@ const getProducts = async () => {
         console.log(carrito.length);
         carritoCounter();
         saveLocal();
+        sendMessage()
       }
     });
   });
@@ -91,22 +94,22 @@ const pintarCarrito = () => {
       let carritoContent = document.createElement("div");
       carritoContent.className = "modal-content";
       carritoContent.innerHTML = `
-          <img src="${product.imagen}">
-  <h3>${product.categoria} ${product.nombre}</h3>
-  <p>$${product.precio}</p>
-  <div>
-    <table>
-      <thead style="text-align: center; border: 1px solid black;">
-        <th class="restar" style="width: 25px;"><button style="width:100%; border: none">-</button></th>
-        <th style="width: 50px;">${product.cantidad}</th>
-        <th class="sumar" style="width: 25px;"><button style="width:100%; border: none">+</button></th>
-      </thead>
-    </table>
-  </div>
-  <p>Total: $ ${product.cantidad * product.precio}</p>
-  <span class="delete-product"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
-  </span>
+        <img src="${product.imagen}">
+        <h3>${product.categoria} ${product.nombre}</h3>
+        <p>$${product.precio}</p>
+        <div>
+          <table>
+            <thead style="text-align: center; border: 1px solid black;">
+              <th class="restar" style="width: 25px;"><button style="width:100%; border: none">-</button></th>
+              <th style="width: 50px;">${product.cantidad}</th>
+              <th class="sumar" style="width: 25px;"><button style="width:100%; border: none">+</button></th>
+            </thead>
+          </table>
+        </div>
+        <p>Total: $ ${product.cantidad * product.precio}</p>
+        <span class="delete-product"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg>
+        </span>
         `;
   
       modalContainer.append(carritoContent);
@@ -159,7 +162,6 @@ const pintarCarrito = () => {
     carritoCounter();
     saveLocal();
     pintarCarrito();
-    deleteProduct();
   };
   
     const carritoCounter = () => {
@@ -175,28 +177,6 @@ const pintarCarrito = () => {
   carritoCounter();
 
 
-  function deleteProduct(){
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-      }
-      else{
-        
-      }
-    })
-    }
 
   const $form = document.querySelector('#form')
   $form.addEventListener('submit', handleSubmit)
@@ -205,8 +185,11 @@ const pintarCarrito = () => {
     const form = new FormData(this)
     mailing.setAttribute('href', `mailto:karminacarteras@gmail.com?subject=${form.get('name')}${form.get('email')}&body=${form.get('message')}`)
     maiing.click()
+
   }
 
+function sendMessage(){
+  Swal.fire('Producto agregado')
+}
 
 
- 
