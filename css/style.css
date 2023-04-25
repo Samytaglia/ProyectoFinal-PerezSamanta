@@ -161,8 +161,8 @@ h1{
 
 /*MODAL-CONTENT*/
 .modal-container {
-    width: 50%;
-    margin: 0 50%;
+    width: 40%;
+    margin: 0 60%;
     max-height: 88vh;
     color: #121212;
     background-color:whitesmoke;

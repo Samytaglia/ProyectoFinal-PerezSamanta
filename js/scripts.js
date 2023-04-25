@@ -1,5 +1,3 @@
-
-
 const cartContainer = document.getElementById("cartContainer");
 const showCart = document.getElementById("showCart");
 const modalContainer = document.getElementById("modal-container");
@@ -54,7 +52,7 @@ const getProducts = async () => {
         });
         console.log(carrito);
         console.log(carrito.length);
-        carritoCounter();
+        carritoCount();
         saveLocal();
         sendMessage()
       }
@@ -70,7 +68,7 @@ const saveLocal = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
-const pintarCarrito = () => {
+const llenarCarrito = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "flex";
     const modalHeader = document.createElement("div");
@@ -81,7 +79,7 @@ const pintarCarrito = () => {
     modalContainer.append(modalHeader);
   
     const modalbutton = document.createElement("a");
-    modalbutton.innerHTML = '<a><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></a>';
+    modalbutton.innerHTML = '<a><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" color="whitesmoke" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></a>';
     modalbutton.className = "modal-header-button";
   
     modalbutton.addEventListener("click", () => {
@@ -128,14 +126,14 @@ const pintarCarrito = () => {
           product.cantidad--;
         }
         saveLocal();
-        pintarCarrito();
+        llenarCarrito();
       });
   
       let sumar = carritoContent.querySelector(".sumar");
       sumar.addEventListener("click", () => {
         product.cantidad++;
         saveLocal();
-        pintarCarrito();
+        llenarCarrito();
       });
   
       let eliminar = carritoContent.querySelector(".delete-product");
@@ -155,7 +153,7 @@ const pintarCarrito = () => {
     modalContainer.append(totalBuying);
   };
 
-  showCart.addEventListener("click", pintarCarrito);
+  showCart.addEventListener("click", llenarCarrito);
   
     const eliminarProducto = (id) => {
     const foundId = carrito.find((element) => element.id === id);
@@ -166,12 +164,12 @@ const pintarCarrito = () => {
       return carritoId !== foundId;
     });
   
-    carritoCounter();
+    carritoCount();
     saveLocal();
-    pintarCarrito();
+    llenarCarrito();
   };
   
-    const carritoCounter = () => {
+    const carritoCount = () => {
     cantidadCarrito.style.display = "block";
   
     const carritoLength = carrito.length;
@@ -181,7 +179,7 @@ const pintarCarrito = () => {
     cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
   };
   
-  carritoCounter();
+  carritoCount();
 
   const $form = document.querySelector('#form')
   $form.addEventListener('submit', handleSubmit)
