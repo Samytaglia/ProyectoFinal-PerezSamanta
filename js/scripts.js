@@ -1,8 +1,9 @@
 const cartContainer = document.getElementById("cartContainer");
-const showCart = document.getElementById("showCart");
 const modalContainer = document.getElementById("modal-container");
-const showAlert = document.getElementById("showAlert");
 const cantidadCarrito = document.getElementById("cantidadCarrito");
+
+const showAlert = document.getElementById("showAlert");
+const showCart = document.getElementById("showCart");
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -50,21 +51,17 @@ const getProducts = async () => {
           precio: product.precio,
           cantidad: product.cantidad,
         });
-        console.log(carrito);
-        console.log(carrito.length);
         carritoCount();
-        saveLocal();
+        saveLocalStorage();
         sendMessage()
       }
     });
   });
-  
-
 };
 
 getProducts();
 
-const saveLocal = () => {
+const saveLocalStorage = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
@@ -125,14 +122,14 @@ const llenarCarrito = () => {
         if (product.cantidad !== 1) {
           product.cantidad--;
         }
-        saveLocal();
+        saveLocalStorage();
         llenarCarrito();
       });
   
       let sumar = carritoContent.querySelector(".sumar");
       sumar.addEventListener("click", () => {
         product.cantidad++;
-        saveLocal();
+        saveLocalStorage();
         llenarCarrito();
       });
   
@@ -165,7 +162,7 @@ const llenarCarrito = () => {
     });
   
     carritoCount();
-    saveLocal();
+    saveLocalStorage();
     llenarCarrito();
   };
   
@@ -194,6 +191,3 @@ const llenarCarrito = () => {
 function sendMessage(){
   Swal.fire('Producto agregado')
 }
-
-
-
